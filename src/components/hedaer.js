@@ -10,7 +10,7 @@ export function Header() {
         <div className="container">
           <a className="navbar-brand" href="#">NirKaufman | Blog</a>
           <a className="navbar-brand" href="#">{
-            user ? `Hello: ${user.userName}` : <button onClick={signIn}>signIn</button>
+            user ? `Hello: ${user.userName}` : <div id='signInDiv'></div>
           }</a>
           <ul className='nav'>
             <li className='nav-item'>

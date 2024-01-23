@@ -10,7 +10,7 @@ export function BlogProvider({children}) {
  
   const fetchPosts = async () => {
     try {
-      const response = await fetch('/posts');
+      const response = await fetch(`${process.env.REACT_APP_API_SERVER_URL}/posts`);
       setPosts(await response.json());
     } catch {
       alert("there was an error while fetching posts from the server");
@@ -28,7 +28,7 @@ export function BlogProvider({children}) {
       "postedBy": user.id
     };
 
-    fetch('/posts', {
+    fetch(`${process.env.REACT_APP_API_SERVER_URL}/posts`, {
       method: "POST",
       body : JSON.stringify(newPost),
       headers: {
@@ -48,19 +48,3 @@ export function BlogProvider({children}) {
       </BlogContext.Provider>
   )
 }
-
-
-
-// const fetchPosts = async () => {
-//   try {
-//       const response = await fetch('http://127.0.0.1:4000/posts');
-//       if (!response.ok) {
-//           throw new Error('Network response was not ok');
-//       }
-//       const data = await response.json();
-//       setPosts(data); // Update state with fetched posts
-//   } catch (error) {
-//       console.error('There was a problem with the fetch operation:', error);
-//   }
-// };
-// fetchPosts();
