@@ -15,7 +15,7 @@ export function PostPage() {
   const [post, setPost] = useState();
 
   useEffect(() => {
-    fetch(`/posts/${id}`)
+    fetch(`${process.env.REACT_APP_API_SERVER_URL}/posts/${id}`)
         .then(response => response.json())
         .then(json => setPost(json))
   }, []);
